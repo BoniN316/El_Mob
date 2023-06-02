@@ -1,0 +1,172 @@
+
+
+/* iPhNexus7 960x600 landscape
+realno*/
+@media only screen and (max-width:1024px) and (orientation:landscape) 
+{ 
+ .bottom-bar .mg-desktop-cart{
+        right: 10px;
+        top: 0;
+    } 
+#LM{
+	padding-left:0em;  
+	  
+  }  
+ 
+
+.logo-block a{
+            height: 43px;
+      }
+
+.logo-block a img{
+            max-width: 10%;
+            max-height: 10%;
+      }
+
+.buy-block .buy-container{
+            width: auto;
+      }
+
+.products-wrapper .product-wrapper{
+               width: 600px;
+    padding: 0px 0px 0px 50px;
+      }
+      
+
+  .wrapper {
+  min-width: 1015px;
+  max-width: 1015px;
+  margin: 1px 1px 1px 1px;
+  padding: 0 1em;
+ 
+}
+.boxLM{
+	    width: 113%;
+    overflow: hidden;
+    display: table;
+}
+.container .boxLM{
+	    width: 100%;
+    overflow: hidden;
+    display: table;
+}
+.colleft {
+    width: 0%;
+    padding-right: 0%;
+}
+.cols.content {
+    width: 100%!important;
+	    padding: 0px 0px 0px 60px!important;
+} 
+#txtdiv{
+ padding: 0px 60px 0px 0px!important;
+width:200px;
+ margin: 0px 60px 0px 00px!important;	
+}
+.content p{
+    text-align: justify;
+    width: 104%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 20px 0px 20px;
+}
+.pa {
+    text-indent: 20px;
+    width: 680px;
+}
+.cat-desc-text p,h1,h2{
+width:88%;	
+}
+.leftblock {
+        background: #fffdef;
+    padding: 1em;
+    text-transform: uppercase;
+    position: absolute!important;
+    top: 335px!important;
+    left: 0px!important;
+}
+h2 {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 12px;
+    margin-top: 12px;
+    overflow: hidden;
+    border: none;
+    font: normal normal bold 18px/1 Georgia,"Times New Roman", Times, serif;
+    color: rgba(30,29,33,1);
+    text-align: center;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    letter-spacing: -1px;
+    background: rgba(122, 224, 216, 0.3);
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+    text-shadow: -1px 0 0 rgb(255,255,255);
+}
+h4, h5, h6 {
+    margin-top: 4px;
+    font: bold 16px arial;
+    color: #2C05FD;
+    margin-left: 7px;
+}
+.cols .content h1{
+margin-left:53px!important;	
+}
+.flowfilter{
+	    width: 120px!important;
+    position: absolute!important;
+    top: 435px!important;
+    left: 900px!important;
+}
+#mbmcpebul_table ul li a {
+    color: #000000;
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Geneva'!important;
+    font-size: 20px;
+    line-height: 18px;
+    font-style: normal;
+    font-weight: 900;
+    text-decoration: none;
+    display: block;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#rlp{
+    margin: 0px 0px 0px -3%!important;
+}  
+.strlFt{
+display:inline; 
+margin-left:39%;
+margin-top:-70px;
+
+}
+.MonFt{
+    text-align: center!important;
+ margin: 0px 0px 4% 3%;
+}
+#mbmcpebul_table ul {
+     position: initial; 
+    top: -99999px;
+    z-index: 4000;
+    /* font-weight: 900; */
+}
+#mbbetonebul_table ul {
+position: initial; 
+    top: -99999px;
+    z-index: 4000;
+}
+#mbbetonebul_table ul li a {
+color: #000000;
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Geneva'!important;
+    font-size: 20px;
+    line-height: 18px;
+    font-style: normal;
+    font-weight: 900;
+    text-decoration: none;
+    display: block;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+}

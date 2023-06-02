@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+<yml_catalog date="2016-11-01 17:00">
+  <shop>
+    <name>Элакор</name>
+    <company>ТэоХим</company>
+    <url>http://elakor-floor.ru/</url>
+
+    <currencies>
+        <currency id="RUR" rate="1"/>
+    </currencies>
+
+    <categories>
+        <category id="5">Шпатлевки</category>
+    </categories>
+
+    <offers>
+        <offer id="1" type="vendor.model" available="true">
+            <url>http://elakor-floor.ru/materialy/shpatlevki/shpatlyovka-2k</url>
+            <price>265</price>
+            <currencyId>RUR</currencyId>
+            <categoryId>5</categoryId>
+            <delivery>false</delivery>
+            <typePrefix>Шпатлевка</typePrefix>
+            <vendor>ТэоХим</vendor>
+            <model>Элакор ПУ Шпатлёвка-2К</model>
+            <description>Цветной двухкомпонентный полиуретановый состав,
+            образующий после твердения твердо-эластичный полимер с высокой ударной вязкостью
+            и высокими механическими свойствами.
+            </description>
+            <manufacturer_warranty>true</manufacturer_warranty>
+            <country_of_origin>Россия</country_of_origin>
+            <param name="Тип полимера">Полиуретан</param>
+            <param name="Количество компонентов">2</param>
+            <param name="Соотношение компонентов">5.5:1</param>
+            <param name="Гарантийный срок в таре производителя ">6 мес.</param>
+        </offer>
+
+        <offer id="2" type="vendor.model" available="true">
+            <url>http://elakor-floor.ru/materialy/shpatlevki/epoksidnaya-shpatlevka</url>
+            <price>290</price>
+            <currencyId>RUR</currencyId>
+            <categoryId>5</categoryId>
+            <delivery>false</delivery>
+            <typePrefix>Шпатлевка</typePrefix>
+            <vendor>ТэоХим</vendor>
+            <model>Элакор ЭД Шпатлёвка-2К</model>
+            <description>Двухкомпонентная эпоксидная композиция заданного цвета
+            </description>
+            <manufacturer_warranty>true</manufacturer_warranty>
+            <country_of_origin>Россия</country_of_origin>
+            <param name="Тип полимера">Эпоксид</param>
+            <param name="Количество компонентов">2</param>
+            <param name="Соотношение компонентов">6:1</param>
+            <param name="Гарантийный срок в таре производителя ">6 мес.</param>
+        </offer>
+    </offers>
+  </shop>
+</yml_catalog>

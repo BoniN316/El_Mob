@@ -1,0 +1,22 @@
+﻿AddType image/x-icon .ico
+Options +FollowSymlinks
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^.htaccess$ -[F]
+RewriteCond %{HTTP_HOST} ^www.elakor-floor.ru/$ [NC]
+RewriteRule ^(.*)$ http://elakor-floor.ru/$1 [R=301,L]
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(php|htm|html)\ HTTP/ 
+RewriteRule ^index\.(php|htm|html)$ http://elakor-floor.ru/ [R=301,L]
+RewriteCond %{THE_REQUEST} ^(.*)\/index\.(php|htm|html)\ HTTP/ 
+RewriteRule ^(.*)\/index\.(php|htm|html)$ http://elakor-floor.ru/$1/ [R=301,L]
+
+</IfModule>
+
+<IfModule mod_php5.c> 
+php_flag magic_quotes_gpc Off
+</IfModule>
+
+php_value default_charset utf-8
+AddType 'text/html; charset=utf-8' .html .htm .shtml

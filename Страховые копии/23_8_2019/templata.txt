@@ -1,0 +1,288 @@
+<?php
+/**
+ * Файл template.php является каркасом шаблона, содержит основную верстку шаблона.
+ *
+ *
+ *   Получить подробную информацию о доступных данных в массиве $data, можно вставив следующую строку кода в верстку файла.
+ *   <code>
+ *    <?php viewData($data); ?>
+ *   </code>
+ *
+ *   Также доступны вставки, для вывода верстки из папки layout
+ *   <code>
+ *      <?php layout('cart'); ?>      // корзина
+ *      <?php layout('auth'); ?>      // личный кабинет
+ *      <?php layout('widget'); ?>    // виджиеы и коды счетчиков
+ *      <?php layout('compare'); ?>   // информер товаров для сравнения
+ *      <?php layout('content'); ?>   // содержание открытой страницы
+ *      <?php layout('leftmenu'); ?>  // левое меню с категориями
+ *      <?php layout('topmenu'); ?>   // верхнее горизонтаьное меню
+ *      <?php layout('contacts'); ?>  // контакты в шапке
+ *      <?php layout('search'); ?>    // форма для поиска
+ *      <?php layout('content'); ?>   // вывод контента сгенерированного движком
+ *   </code>
+ *   @author Авдеев Марк <mark-avdeev@mail.ru>
+ *   @package moguta.cms
+ *   @subpackage Views
+ *
+*$x=PROTOCOL.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+*echo $x;
+*/
+?>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <?php mgMeta(); ?>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="cmsmagazine" content="e43c9fcdf582574b78a64d24365e6e0d" />
+    <meta name="yandex-verification" content="fd6c904da7f5597a" />
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+           
+  
+    <?php mgAddMeta('<script type="text/javascript" src="'.PATH_SITE_TEMPLATE.'/js/script.js"></script>');?>
+  
+    <?php mgAddMeta('<script type="text/javascript" src="'.PATH_SITE_TEMPLATE.'/js/stscript.js"></script>');?> 	       
+    <?php mgAddMeta('<script type="text/javascript" src="'.PATH_SITE_TEMPLATE.'/js/baner_mob.js"></script>');?> 	    
+           
+      <link  href="http://www.elakor-floor.ru/mg-templates/elakor/css/style.css" id="LMN" rel="stylesheet" type="text/css" />
+   
+
+           
+
+   
+  </head>
+ <body>
+
+<style type="text/css">
+  
+  #prlx{
+  display:none;
+  }  
+</style>
+ 
+  
+    
+  <div id="prlx">
+ 
+    </div>  
+    
+ <div class="wrapper">   
+    <header class="container header">
+            <div class="cols colleft">
+                <a href="/" title="Элакор" class="logo"><span class="cred">Элакор</span><sup><small>&trade;</small></sup></a>
+                <div class="inettitle">интернет магазин</div>
+                <div class="outcart"><?php layout('cart'); ?></div>
+            </div>
+      <div class="wrpGmb"style="display:none;">
+<input type="checkbox" id="chkd_menu">
+  <label for="chkd_menu"><span style="color:#00ff04;">........</label>
+<div class="gmb-Line prim"></div>
+<div class="gmb-Line two"></div>
+<div class="gmb-Line three"></div>  
+<div class="gmb-Line fourth"></div>
+<nav class= "mainMen">
+  <ul>
+   <li><a href="http://www.elakor-floor.ru/prays-list">Прайс Лист. </a></li><br>
+<li><a  href="http://www.elakor-floor.ru/poly/promyshlennye-poly">Промышленные полы.</a></li> <br>
+ <li><a href="http://www.elakor-floor.ru/poly/betonnye-poly">Бетонные полы.</a></li><br>
+ <li><a href="http://www.elakor-floor.ru/poly/polimernye-poly">Полимерные полы.</a></li> <br>
+ <li><a href="http://www.elakor-floor.ru/sertifikaty">Сертификаты.</a></li> <br>
+<li> <a href="http://www.elakor-floor.ru/obraztsy-betonov">Образцы бетонов.</a></li> 
+  </ul>
+  </nav>
+</div>
+       
+            <div class="cols colright">
+                <div class="container maintop">
+                  <div class="cols siteintro" ><span style="color:#685A83;margin-left:32%!important;font-family: 'Georgia','Times New Roman', Times, serif;
+    font-size: 100%;"> Наливные полы:</span><br><span style="color:#685A83; margin-left: 25%!important;font-family: 'Georgia','Times New Roman', Times, serif;
+ font-size: 100%;"> материалы, покрытия.</span><br><span style="color:#FF0000; margin-left: 16%!important;font-family: 'Georgia','Times New Roman', Times, serif;
+ font-size: 80%;">Удобный выбор для вашего объекта</span></div>
+                    <div class="cols topconts">
+                      <div class="phone"><span style="color:red;font-weight:bold;">+7 (985) </span>144-21-62</div>
+                        <div class="zvonok">[back-ring]</div>
+                    </div>
+                </div>
+               <div class="container catmenu" id="BlockCatTov">
+                  <!-- Вывод верхнего меню материалов, покрытий, объектов-->
+                  <?php layout('leftmenu'); ?>
+                  <!--/Вывод левого меню-->
+                </div>  
+                <?php if(!(URL::isSection(null) || URL::isSection('index')) && (MG::get('controller')=='controllers_catalog' || MG::get('controller')=='controllers_product')): ?>[brcr]<?php endif; ?>
+
+            </div>
+    </header><!-- header .container -->
+ 
+      <div  class="container boxLM">
+        <div id="LM">
+            <aside class="cols colleft"> <!-- aside -->
+            <div class="outleftblock">
+                <div class="leftblock">
+                    <div class="downprice"><a href="/prays-list" title="Полный прайс лист">Полный прайс лист</a></div>
+                    <div class="leftmenu">
+                      <?php layout('topmenu'); ?>
+                        <ul>
+                        <?php
+                            //$subpages = MG::get('pages')->getPageByUrl('index');
+                            $subpages = MG::get('pages')->getHierarchyPage(7);
+                            $current_url = URL::getUrl();
+                            foreach ($subpages as $subpage) {
+                              if($current_url==$subpage['link']||$current_url==$subpage['link'].'/'){$subactive = 'active';} else {$subactive = '';}
+                              echo '<li class="'.$subactive.'"><a class="twocolor" title="'.$subpage['title'].'" href="'.$subpage['link'].'">'.$subpage['title'].'</a></li>';
+                            }
+                            //viewData($subpages);
+                        ?>
+                        </ul>
+                        [blog-categories]
+                    </div>
+                </div>
+            </div><!-- outleftblock -->
+        </aside><!-- .left-sidebar -->
+        </div>
+          <div class="cols colright">
+              <div class="container">
+
+                  <main <?php if (!(MG::get('controller')=="controllers_catalog")) echo 'style="width: 100%;"';;?> class="cols content">
+                      <?php $main = MG::get('pages')->getPageByUrl('index');
+                      if (!(isset($_GET['applyFilter']) && $_GET['applyFilter'] != '') && (URL::isSection(null) || URL::isSection('index')))
+                      echo $main['html_content'];
+                      else layout('content'); ?>
+                  </main><!-- .content -->
+<div id="ffltr">
+  <?php if(MG::get('controller')=="controllers_catalog") : ?>
+                <div class="cols colfilter">
+                    <div class="outfilter">
+                        <div class="flowfilter">
+                            <div class="filter">
+                                <div class="filtitle"> Отметьте свои приоритеты для быстрого подбора нужного вам варианта.</div>
+
+                                <?php if(MG::get('controller')=="controllers_catalog" || MG::get('controller')=="controllers_product") : ?>
+                                  <div class="filter-block "><?php filterCatalog(); ?></div>
+                                <?php endif; ?>
+
+                            </div><!--filter-->
+                            <button class="button flbutton bt_podbor">Подобрать</button>
+                            <button class="button flbutton bt_all">Больше фильтров</button>
+                            <button class="button flbutton bt_resets">Сбросить фильтры</button>
+                        </div><!--flowfilter-->
+                    </div><!--outfilter-->
+                </div><!--cols colfilter-->
+
+<?php endif; ?>
+                </div><!--ffltr-->
+
+              </div><!-- .container-->
+          </div><!-- .colright -->
+      </div><!-- .container-->
+  </div><!-- .wrapper -->
+
+  <div class="outfooter">
+      <footer class="footer">
+     
+          <div class="ftleft">
+              <p>
+                  Телефон отдела продаж:<br>
+                  +7-985-144-21-62<br>
+                  пн-пт 9:00-18:00
+              </p>
+          </div>
+          <div class="ftright">
+              <p>ИП Грузберг Ольга Юрьевна,<br>127055, Россия, г. Москва,<br> ул. Палиха, 2А, кв. 5</p>
+          </div>
+          <div class="ftcopyr">2016 © ИП Грузберг О. Ю.<p style="margin: 10px 0;">Все <a href="http://www.teohim.ru/nalivnye/" target="_blank" title="Наливные полы">наливные полы</a> от производителя</p><?php layout('widget'); ?></div>
+      </footer><!-- .footer -->
+  </div><!-- outfooter -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter37589210 = new Ya.Metrika({
+                    id:37589210,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/37589210" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter46989405 = new Ya.Metrika({
+                    id:46989405,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/46989405" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-78357554-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  <script type="text/javascript">
+   var wdth=document.body.clientWidth; // ширина  
+	  var blopl=document.getElementsByClassName("delivery-vs-payment")[0];
+    var frmList=document.getElementsByClassName("form-list")[0];
+    if(blopl){blopl.style="width:100%!important;";}
+    if(frmList){
+    frmList.style="width:100%!important;border:none;";
+    
+    }
+   
+ 
+
+    
+</script>
+
+   
+  </body>
+</html>

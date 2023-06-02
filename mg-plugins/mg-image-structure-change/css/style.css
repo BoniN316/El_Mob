@@ -1,0 +1,13 @@
+.admin-wrapper .my-view-action{
+  background: url("/mg-admin/design/images/loader.gif") no-repeat scroll 10px center #f8b706;
+  border: 1px solid #e49023;
+  border-radius: 3px;
+  bottom: 0;
+  color: #fff;
+  display: inline-block;
+  left: 0;
+  padding: 30px 30px 30px 50px;
+  position: fixed;
+  text-shadow: 1px 1px 1px #444;
+  z-index: 100;
+}

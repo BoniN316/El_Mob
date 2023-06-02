@@ -1,0 +1,283 @@
+<?php
+
+/**
+ * Файл может содержать ряд пользовательских фунций влияющих на работу движка.
+ * В данном файле можно использовать собственные обработчики
+ * перехватывая функции движка, аналогично работе плагинов.
+ *
+ * @author Авдеев Марк <mark-avdeev@mail.ru>
+ * @package moguta.cms
+ * @subpackage File
+ */
+function seoMeta($args) {
+  $settings = MG::get('settings');
+  $args[0]['title'] = !empty($args[0]['title']) ? $args[0]['title'] : '';
+  $title = !empty($args[0]['meta_title']) ? $args[0]['meta_title'] : $args[0]['title'];
+  MG::set('metaTitle', $title.' | '.$settings['sitename']);
+}
+
+mgAddAction('mg_seometa', 'seoMeta', 1);
+
+/*Шорткоды--------------------------------------------*/
+
+/*Функция вывода купить и консультации------------------*/
+//Шорткод [kupit] - для вываода кнопки купить и [kupit type=2] - для вывода кнопок - заказать консультацию и купить
+function kupit_func($args) {
+  $output = '
+        <div class="pbuttons">
+                <a class="pbutton bttech" target="_blank" href="https://moguta.elakor-floor.ru/zakazat-konsultatsiyu" title="Заявка">Заказать</a>
+              </div>
+    ';
+    return  $output;
+}
+mgAddShortcode('kupit', array(__CLASS__, 'kupit_func'));
+/*-----------------------------------------------------*/
+
+/*Функция вывода товаров по id------------------*/
+// Шорткод [products ids="62,63,64"] - вывводит товары в соответствии с их id, вместо 62,63,64 ввести свои id товаров без пробелов
+function products_func($args) {
+if (isset($args['ids']) && $args['ids'] != '') {
+
+  $layout = 'layout_products';
+  $products = MG::layoutManager($layout, $args);
+  return  $products;
+
+}
+}
+mgAddShortcode('products', array(__CLASS__, 'products_func'));
+/*-----------------------------------------------------*/
+
+/*Функция вывода калькулятора------------------*/
+// Шорткод [calculator] - вывводит калькулятор
+function calculator_func($args) {
+  $layout = 'layout_calculator';
+  $calculator = MG::layoutManager($layout, '');
+  return  $calculator;
+}
+mgAddShortcode('calculator', array(__CLASS__, 'calculator_func'));
+
+/*Функция вывода консультации------------------*/
+// Шорткод [consult] - вывводит Форму консультации
+function consult_func($args) {
+  $layout = 'layout_consult';
+  $consult = MG::layoutManager($layout, '');
+  return  $consult;
+}
+mgAddShortcode('consult', array(__CLASS__, 'consult_func'));
+
+/*Функция вывода прайслиста------------------*/
+// Шорткод [pricelist] - вывводит прайслист
+function pricelist_func($args) {
+  $layout = 'layout_pricelist';
+  $prlist = MG::layoutManager($layout, '');
+  return  $prlist;
+}
+mgAddShortcode('pricelist', array(__CLASS__, 'pricelist_func'));
+
+/*Функция вывода цен по id------------------*/
+// Шорткод [prices id="62"] - вывводит цены по id товара, вместо 62 ввести свой id товара
+function productPrices($args) {
+if (isset($args['id']) && $args['id'] != '') {
+
+    $id = $args['id'];
+    $prod_prices = getProductsCsv('price.csv', $id);
+    $prod_prices = $prod_prices[$id];
+
+    $fas = explode('|', $prod_prices['*']);
+    foreach ($prod_prices as $key => $value) {
+        $star = (in_array($key, $fas)) ? 'р.*' : 'р.';
+        $prod_prices[$key] = $value.$star;
+    }
+
+ $ipos= strrpos ( $prod_prices['88888888'], '*');
+    if ($ipos>0) {
+$k=4;
+    }
+else
+{
+$k=3;
+
+}
+ $ipos= strrpos ( $prod_prices['40'], '*');
+    if ($ipos>0) {
+$l=4;
+    }
+else
+{
+$l=3;
+
+}
+
+
+
+
+
+    $prices = '
+        <table>
+
+<tr><td><strong>10-39кг</strong></td><td><span itemprop="highPrice">'.mb_substr($prod_prices['40'],0,strlen(($prod_prices['40']))-$l).'</span>p.</td></tr>
+            <tr><td><strong>40-199кг</strong></td><td>'.$prod_prices['200'].'</td></tr>
+            <tr><td><strong>200-499кг</strong></td><td>'.$prod_prices['500'].'</td></tr>
+            <tr><td><strong>500-1тн</strong></td><td>'.$prod_prices['1000'].'</td></tr>
+            <tr><td><strong>1-3тн</strong></td><td>'.$prod_prices['3000'].'</td></tr>
+            <tr><td><strong>более 3тн</strong></td><td><span itemprop="lowPrice">'.mb_substr($prod_prices['88888888'],0,strlen(($prod_prices['88888888']))-$k).'</span>'.$star.'</td></tr>
+        </table>
+    ';
+
+    return  $prices;
+}
+else return;
+}
+mgAddShortcode('prices', array(__CLASS__, 'productPrices'));
+/*Минимальная-----------------------------------------------------*/
+//----------------------------Получение минимальной цены-------------------*/
+function lwproductPrices($args) {
+
+if (isset($args['id']) && $args['id'] != '') {
+
+  $id = $args['id'];
+  $lwprod_prices = getProductsCsv('price.csv', $id);
+
+  $lwprod_prices = $lwprod_prices[$id];
+
+  $fas = explode('|', $lwprod_prices['*']);
+  foreach ($lwprod_prices as $key => $value) {
+    $star = (in_array($key, $fas)) ? 'р.*' : 'р.';
+    $lwprod_prices[$key] = $value.$star;
+  }
+
+   $ipos= strrpos ( $lwprod_prices['88888888'], '*');
+    if ($ipos>0) {
+$k=4;
+    }
+else
+{
+$k=3;
+
+}
+
+
+
+  $lwprices =mb_substr($lwprod_prices['88888888'],0,strlen(($lwprod_prices['88888888']))-$k);
+
+
+
+  return  $lwprices;
+}
+else return;
+}
+mgAddShortcode('lwprices', array(__CLASS__, 'lwproductPrices'));
+/*Максимальная---------------------------------------------*/
+//-------------------------------Получение максимальной цены-----------------------
+function mxlwproductPrices($args) {
+if (isset($args['id']) && $args['id'] != '') {
+
+  $id = $args['id'];
+  $mxlwprod_prices = getProductsCsv('price.csv', $id);
+
+  $mxlwprod_prices = $mxlwprod_prices[$id];
+
+  $fas = explode('|', $mxlwprod_prices['*']);
+  foreach ($mxlwprod_prices as $key => $value) {
+    $star = (in_array($key, $fas)) ? 'р.*' : 'р.';
+    $mxlwprod_prices[$key] = $value.$star;
+  }
+
+   $ipos= strrpos ( $mxlwprod_prices['40'], '*');
+    if ($ipos>0) {
+$k=4;
+    }
+else
+{
+$k=3;
+
+}
+
+
+
+  $mxlwprices =mb_substr($mxlwprod_prices['40'],0,strlen(($mxlwprod_prices['40']))-$k);
+
+
+
+  return  $mxlwprices;
+}
+else return;
+}
+mgAddShortcode('mxlwprices', array(__CLASS__, 'mxlwproductPrices'));
+
+
+
+/*----------------------------Изменение цены--------------------*/
+//Получение данных из CSV
+function getProductsCsv($filename='', $id = 0){
+  //$filename = 'price.csv';
+  $prices = array();
+  $products = array();
+
+  if(!file_exists('uploads/'.$filename)) return $products;
+
+  $f = fopen(SITE.'/uploads/'.$filename, "rt") or die("Ошибка!");
+  for ($i=0; $data=fgetcsv($f,1000,";"); $i++) {
+      if($i != 0) {
+          $prod_id = iconv('windows-1251', 'utf-8', $data[0]);
+          if($id != 0 && $id != $prod_id) continue;
+
+          $prices[$i]['40'] = iconv('windows-1251', 'utf-8', $data[5]);
+          $prices[$i]['200'] = iconv('windows-1251', 'utf-8', $data[6]);
+          $prices[$i]['500'] = iconv('windows-1251', 'utf-8', $data[7]);
+          $prices[$i]['1000'] = iconv('windows-1251', 'utf-8', $data[8]);
+          $prices[$i]['3000'] = iconv('windows-1251', 'utf-8', $data[9]);
+          $prices[$i]['88888888'] = iconv('windows-1251', 'utf-8', $data[10]);
+          $prices[$i]['*'] = iconv('windows-1251', 'utf-8', $data[11]);
+          //For moguta products prices
+          $products[$prod_id] = $prices[$i];
+
+          if($id != 0 && $id == $prod_id) break;
+      }
+  }
+  fclose($f);
+  return $products;
+}
+
+function myfunc($args){
+
+$products = getProductsCsv('price.csv');
+
+$prod = $args['product'];
+$id = $prod['id'];
+$new_price = 0;
+
+
+$cart = $_SESSION['cart'];
+foreach ($cart as $key) {
+  if ($key['id'] == $id) {
+    $num = $key['count'];
+  }
+}
+
+//Для применения скидок
+$cart_new = new Models_Cart;
+
+if (array_key_exists($id, $products)) {
+    $product = $products[$id];
+
+    foreach ($product as $cols => $price) {
+        if ($num < $cols) {
+            $summ = $num*$price;
+            $new_price = $price;
+
+            //Для скидок
+            $new_price_disc = $cart_new->applyDiscountSystem($new_price);
+            $new_price = $new_price_disc['price'];
+
+            break;
+        }
+    }
+    return $new_price;
+}
+
+//if ($id == 61) return $new_price;
+else return $args['priceWithDiscount'];
+//else return $prod['price'];
+}
+mgAddCustomPriceAction(array(__CLASS__, 'myfunc'));

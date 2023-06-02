@@ -1,0 +1,28 @@
+﻿.div_Predlog_zaka{
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 600px;
+  height: 153px;
+  margin: 0 12px;
+  padding: 15px 6px;
+  border: 3px solid rgba(205, 229, 25, 1);
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  font: normal 14px/normal "Times New Roman", Times, serif;
+  color: rgba(242, 247, 247, 1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -webkit-radial-gradient(rgba(254, 204, 177, 0.33) 0, rgba(254, 204, 177, 1) 0, rgba(254, 204, 177, 1) 1%, rgba(241, 116, 50, 0.57) 10%, rgb(230, 90, 20) 31%, rgb(230, 90, 20) 42%, rgb(245, 84, 15) 69%, rgba(234, 85, 7, 1) 76%, rgba(251, 149, 94, 1) 98%, rgba(251, 149, 94, 1) 100%), #b6b9fb;
+  background: -moz-radial-gradient(rgba(254, 204, 177, 0.33) 0, rgba(254, 204, 177, 1) 0, rgba(254, 204, 177, 1) 1%, rgba(241, 116, 50, 0.57) 10%, rgb(230, 90, 20) 31%, rgb(230, 90, 20) 42%, rgb(245, 84, 15) 69%, rgba(234, 85, 7, 1) 76%, rgba(251, 149, 94, 1) 98%, rgba(251, 149, 94, 1) 100%), #b6b9fb;
+  background: radial-gradient(rgba(254, 204, 177, 0.33) 0, rgba(254, 204, 177, 1) 0, rgba(254, 204, 177, 1) 1%, rgba(241, 116, 50, 0.57) 10%, rgb(230, 90, 20) 31%, rgb(230, 90, 20) 42%, rgb(245, 84, 15) 69%, rgba(234, 85, 7, 1) 76%, rgba(251, 149, 94, 1) 98%, rgba(251, 149, 94, 1) 100%), #b6b9fb;
+  background-position: 50% 50%;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: auto auto;
+  background-size: auto auto;
+  -webkit-box-shadow: 4px 4px 6px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 6px 1px rgba(0, 0, 0, 0.4);
+}

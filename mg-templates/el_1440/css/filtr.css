@@ -1,0 +1,167 @@
+﻿.mod_filtitle {
+text-align: center;
+
+padding: 5%;
+width: 118%;
+}
+.mod_wrapper .mod_filter-block .mod_filter-form .mod_mg-filter-head{
+    padding: 10px 10px 0 10px;
+}
+
+.mod_wrapper .mod_filter-form .mod_mg-filter{
+    margin: 0;
+}
+
+.mod_show-hide-filters{
+    margin: 10px;
+    text-align: center;
+    display: none;
+}
+
+.mod_wrapper .mod_filter-block{
+ margin: 0;
+border-radius: 5px;
+float: left;
+width: 126%;
+}
+
+.mod_wrapper .mod_filter-block.mod_show .mod_filter-form{
+    display: block;
+}
+
+.mod_wrapper .mod_filter-block .mod_filter-form{
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.mod_wrapper .mod_filter-form .mod_mg-filter .mod_mg-filter-item{
+/*   // padding: 10px none  !important;*/
+}
+
+.mod_wrapper .mod_filter-form .mod_wrapper-field.mod_filter-buttons{
+    padding: 10px;
+}
+
+.mod_wrapper .mod_filter-block + .mod_main-block{
+    margin-left: 245px;
+    overflow: hidden;
+    padding: 0 0 100px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+.mod_wrapper .mod_no-filters .mod_filter-block + .mod_main-block{
+    margin: 0;
+    overflow: visible;
+}
+
+.mod_main-block{
+    position: relative;
+    z-index: 1;
+}
+
+.mod_main-block h1{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.mod_wrapper .mod_mg-filter-item .mod_mg-tooltip .mod_mg-tooltip-content{
+    border: none;
+    background: #F1F1F1;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.mod_6);
+}
+
+.mod_wrapper .mod_ui-slider .mod_ui-slider-range{
+    background: #E90101;
+}
+.mod_filter-form .mod_price-slider-list {
+    width: 100%;
+
+}
+.mod_wrapper .mod_filter-form .mod_mg-filter .mod_mg-filter-item {
+    border: none;
+}
+.mod_filter-form .mod_mg-filter .mod_mg-filter-item {
+    padding:  0px;
+}
+.mod_filter-form .mod_mg-filter .mod_mg-filter-item ul li {
+margin-top: calc(0.mod_0rem + 0.mod_05vw) !important;
+}
+.mod_mg-filter-head {
+    display: none;
+}
+.mod_mg-viewfilter-all, .mod_wrapper .mod_filter-form .mod_wrapper-field.mod_filter-buttons {
+    display: none;
+}
+.mod_flbutton{
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    width: 90% !important;
+    margin: 0 auto 0.8em !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font: normal 1.mod_2em/2em "Times New Roman", Times, serif !important;
+    color: rgb(0, 0, 0) !important;
+    text-align: center !important;
+    -o-text-overflow: clip !important;
+    text-overflow: clip !important;
+    background: -webkit-linear-gradient(180deg, rgb(241,241,241), rgb(234,235,233) 50%, rgb(209,210,210)), rgba(0,0,0,0) !important;
+    background: -moz-linear-gradient(180deg, rgb(241,241,241) 0, rgb(234,235,233) 50%, rgb(209,210,210) 100%), rgba(0,0,0,0) !important;
+    background: linear-gradient(180deg, rgb(241,241,241) 0, rgb(234,235,233) 50%, rgb(209,210,210) 100%), rgba(0,0,0,0) !important;
+    background-origin: padding-box !important;
+    background-clip: border-box !important;
+    background-size: auto auto !important;
+    box-shadow: 2px 2px 2px 0 rgb(196,196,196)  !important;
+    -webkit-transition: background 300ms ease-out 2ms !important;
+    -moz-transition: background 300ms ease-out 2ms !important;
+    -o-transition: background 300ms ease-out 2ms !important;
+    transition: background 300ms ease-out 2ms !important;
+}
+
+.mod_flbutton:hover {
+    background: -webkit-linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.mod_2) 76%, rgba(0,0,0,0.mod_06) 85%, rgba(0,0,0,0.mod_4) 95%, rgba(0,0,0,0.mod_2)), rgba(0,0,0,0) !important;
+    background: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.mod_2) 76%, rgba(0,0,0,0.mod_06) 85%, rgba(0,0,0,0.mod_4) 95%, rgba(0,0,0,0.mod_2) 100%), rgba(0,0,0,0) !important;
+    background: linear-gradient(90deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.mod_2) 76%, rgba(0,0,0,0.mod_06) 85%, rgba(0,0,0,0.mod_4) 95%, rgba(0,0,0,0.mod_2) 100%), rgba(0,0,0,0) !important;
+    background-position: 50% 50% !important;
+    background-origin: padding-box !important;
+    background-clip: border-box !important;
+    background-size: auto auto !important;
+    -webkit-transition: background 300ms ease-out 2ms !important;
+    -moz-transition: background 300ms ease-out 2ms !important;
+    -o-transition: background 300ms ease-out 2ms !important;
+    transition:background 300ms ease-out 2ms !important;
+
+}
+/*mg-filter-item*/
+.mod_mg-filter {
+
+        /* padding-bottom: 0.mod_2em; */
+
+}
+.mod_mg-filter-item {
+
+}
+
+.mod_filter h4 {
+
+}
+
+.mod_filter ul {
+
+}
+
+.mod_filter li {
+    list-style-type: none;
+}
+
+.mod_filter input {
+
+}
+
+.mod_filter input[type="checkbox"],
+.mod_filter label {
+    cursor: pointer;
+}
+
