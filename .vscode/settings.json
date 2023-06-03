@@ -1,0 +1,33 @@
+{
+
+    "folders": [
+  
+      {
+  
+        "path": "D:\\ElakorMobil\\"
+  
+      }
+  
+    ],
+  
+    "sync-rsync.onSaveIndividual": true,
+  
+    "sync-rsync.executableShell": "/bin/bash",
+  
+    "sync-rsync.shell": "ssh -p 1024 -i C:\\Users\\BoniN\\.ssh\\id_rsa",
+  
+    "sync-rsync.delete": true,
+  
+    "sync-rsync.sites": [
+  
+      {
+  
+        "localPath": "D:\\ElakorMobil\\",
+  
+        "remotePath": "cx40673@188.225.63.143:/ElakorFLOOR/public_html"
+  
+      }
+  
+    ]
+  
+  }
