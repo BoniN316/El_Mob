@@ -2,36 +2,45 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "sync-to-server",
+            "label": "Sync To Server",
             "type": "shell",
-            "command": "rsync",
+            "command": "rsync '${workspaceFolder}' '${host}:${remotePath}' ${flags} ${excludes.map(e => `--exclude=${e}`).join(' ')} -e '${remoteShell} -p ${port}'",
             "options": {
-                "cwd": "${workspaceFolder}"
+                "env": {
+                    "RSYNC_RSH": "${remoteShell} -p ${port}",
+                    "RSYNC_PASSWORD": "${password}"
+                }
             },
-            "args": [
-                "-avz",
-                "-e",
-                "ssh -p {sshPort} -i {sshPrivateKeyPath}",
-                "--exclude={excludeFolders}",
-                "./",
-                "{remoteUser}@{remoteHost}:{remotePath}"
-            ]
+            "problemMatcher": []
         },
+        {
+            "label": "Sync From Server",
+            "type": "shell",
+            "command": "rsync '${host}:${remotePath}' '${workspaceFolder}' ${flags} ${excludes.map(e => `--exclude=${e}`).join(' ')} -e '${remoteShell} -p ${port}'",
+            "options": {
+                "env": {
+                    "RSYNC_RSH": "${remoteShell} -p ${port}",
+                    "RSYNC_PASSWORD": "${password}"
+                }
+            },
+            "problemMatcher": []
+        }
         {
             "label": "deploy",
             "type": "shell",
             "command": "rsync",
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
             "args": [
                 "-avz",
                 "-e",
-                "ssh -p {sshPort} -i {sshPrivateKeyPath}",
-                "--exclude={excludeFolders}",
+                "ssh -p 22 -i C:/Users/BoniN/ssh/id_rsa",
+                "--exclude=node_modules",
                 "./",
-                "{remoteUser}@{remoteHost}:{remotePath}"
-            ]
+                "cx40673@188.225.63.143:/home/c/cx40673/ElakorFLOOR/public_html"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
