@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "sync-to-server",
+            "type": "shell",
+            "command": "rsync",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "-avz",
+                "-e",
+                "ssh -p {sshPort} -i {sshPrivateKeyPath}",
+                "--exclude={excludeFolders}",
+                "./",
+                "{remoteUser}@{remoteHost}:{remotePath}"
+            ]
+        },
+        {
+            "label": "deploy",
+            "type": "shell",
+            "command": "rsync",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "args": [
+                "-avz",
+                "-e",
+                "ssh -p {sshPort} -i {sshPrivateKeyPath}",
+                "--exclude={excludeFolders}",
+                "./",
+                "{remoteUser}@{remoteHost}:{remotePath}"
+            ]
+        }
+    ]
+}

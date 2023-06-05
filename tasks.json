@@ -1,0 +1,46 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Sync To Server",
+            "type": "shell",
+            "command": "rsync '${workspaceFolder}' '${host}:${remotePath}' ${flags} ${excludes.map(e => `--exclude=${e}`).join(' ')} -e '${remoteShell} -p ${port}'",
+            "options": {
+                "env": {
+                    "RSYNC_RSH": "${remoteShell} -p ${port}",
+                    "RSYNC_PASSWORD": "${password}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Sync From Server",
+            "type": "shell",
+            "command": "rsync '${host}:${remotePath}' '${workspaceFolder}' ${flags} ${excludes.map(e => `--exclude=${e}`).join(' ')} -e '${remoteShell} -p ${port}'",
+            "options": {
+                "env": {
+                    "RSYNC_RSH": "${remoteShell} -p ${port}",
+                    "RSYNC_PASSWORD": "${password}"
+                }
+            },
+            "problemMatcher": []
+        }
+        {
+            "label": "deploy",
+            "type": "shell",
+            "command": "rsync",
+            "args": [
+                "-avz",
+                "-e",
+                "ssh -p 22 -i C:/Users/BoniN/ssh/id_rsa",
+                "--exclude=node_modules",
+                "./",
+                "user@host:/path/to/remote/folder"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
