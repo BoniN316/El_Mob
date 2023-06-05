@@ -4,7 +4,7 @@
         {
             "label": "Sync To Server",
             "type": "shell",
-            "command": "rsync '$'{workspaceFolder}' '$'{host}':'$'{remotePath}' '$'{flags}' $'{excludes.map(e => `--exclude=$'{e}`).join(' ')}' -e '$'{remoteShell}' -p $'{port}'",
+            "command": "rsync '$'{workspaceFolder}' '$'{host}':'$'{remotePath}' '$'{flags}' '$'{excludes.map(e => `--exclude='$'{e}`).join(' ')}' -e '$'{remoteShell}' -p '$'{port}'",
             "options": {
                 "env": {
                     "RSYNC_RSH": "$'{remoteShell}' -p '$'{port}'",
