@@ -1,33 +1,15 @@
 {
-
-    "folders": [
-  
-      {
-  
-        "path": "D:\\ElakorMobil\\"
-  
-      }
-  
+  {
+    "remotePath": "/home/c/cx40673/ElakorFLOOR/public_html",
+    "host": "188.225.63.143",
+    "username": "cx40673",
+    "remoteShell": "ssh",
+    "rsyncPath": "rsync",
+    "port": 22,
+    "excludes": [
+        ".git/",
+        "node_modules/",
+        "tmp/*"
     ],
-  
-    "sync-rsync.onSaveIndividual": true,
-  
-    "sync-rsync.executableShell": "/bin/bash",
-  
-    "sync-rsync.shell": "ssh -p 1024 -i C:\\Users\\BoniN\\.ssh\\id_rsa",
-  
-    "sync-rsync.delete": true,
-  
-    "sync-rsync.sites": [
-  
-      {
-  
-        "localPath": "D:\\ElakorMobil\\",
-  
-        "remotePath": "cx40673@188.225.63.143:/ElakorFLOOR/public_html"
-  
-      }
-  
-    ]
-  
-  }
+    "flags": "avz"
+}
