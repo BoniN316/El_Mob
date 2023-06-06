@@ -4,11 +4,11 @@
         {
             "label": "Sync To Server",
             "type": "shell",
-            "command": "rsync '$'{workspaceFolder}' '$'{host}':'$'{remotePath}' '$'{flags}' '$'{excludes.map(e => `--exclude='$'{e}`).join(' ')}' -e '$'{remoteShell}' -p '$'{port}'",
+            "command": "rsync --rsync-path=/usr/bin/rsync  '${workspaceFolder}' cx40673@188.225.63.143:/home/c/cx40673/ElakorFLOOR/public_html '${flags}' '${excludes.map(e => `--exclude=${e}`).join(' ')}' -e '${remoteShell}' -p '${port}'",
             "options": {
                 "env": {
-                    "RSYNC_RSH": "$'{remoteShell}' -p '$'{port}'",
-                    "RSYNC_PASSWORD": "$'{password}'"
+                    "RSYNC_RSH": "'${remoteShell}' -p '${port}'",
+                    "RSYNC_PASSWORD": "'${password}'"
                 }
             },
             "problemMatcher": []
@@ -16,11 +16,11 @@
         {
             "label": "Sync From Server",
             "type": "shell",
-            "command": "rsync '$'{host}':$'{remotePath}' '$'{workspaceFolder}' $'{flags}' $'{excludes.map(e => `--exclude=$'{e}`).join(' ')}' -e '$'{remoteShell}' -p $'{port}''",
+            "command": "rsync '${host}:${remotePath}' '${workspaceFolder}' ${flags} ${excludes.map(e => `--exclude=${e}`).join(' ')} -e '${remoteShell} -p ${port}'",
             "options": {
                 "env": {
-                    "RSYNC_RSH": "$'{remoteShell}' -p $'{port}'",
-                    "RSYNC_PASSWORD": "$'{password}'"
+                    "RSYNC_RSH": "${remoteShell} -p ${port}",
+                    "RSYNC_PASSWORD": "${password}"
                 }
             },
             "problemMatcher": []
@@ -32,7 +32,7 @@
             "args": [
                 "-avz",
                 "-e",
-                "ssh -p 22 -i C:/Users/BoniN/ssh/id_rsa",
+                "ssh -p 22 -i \?\C:/Users/BoniN/ssh/id_rsa",
                 "--exclude=node_modules",
                 "./",
                 "cx40673@188.225.63.143:/home/c/cx40673/ElakorFLOOR/public_html"
